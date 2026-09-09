@@ -1,0 +1,180 @@
+/* ============================================================
+   PHARMACEUTICS HUB — RESPONSIVE CSS
+   Mobile-first approaches and media queries.
+   ============================================================ */
+
+/* --- Mobile (max-width: 640px) --- */
+@media (max-width: 640px) {
+  .pharma-nav__links {
+    display: none;
+  }
+
+  .pharma-nav__hamburger {
+    display: flex;
+  }
+
+  .pharma-nav__links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background-color: var(--bg-card);
+    box-shadow: var(--shadow-md);
+    z-index: var(--z-dropdown);
+    padding: 1rem;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Hamburger Animation */
+  .pharma-nav__hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .pharma-nav__hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .pharma-nav__hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  .pharma-hero {
+    padding: 3rem 1rem;
+  }
+
+  .pharma-hero__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .pharma-hero__actions {
+    flex-wrap: wrap;
+  }
+
+  .pharma-hero__actions .pharma-btn {
+    width: 100%;
+  }
+
+  .pharma-grid--2col,
+  .pharma-grid--3col,
+  .pharma-grid--4col {
+    grid-template-columns: 1fr;
+  }
+
+  .pharma-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pharma-calculator__form {
+    grid-template-columns: 1fr;
+  }
+
+  .pharma-search-modal__content {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    max-height: 100vh;
+    height: 100vh;
+  }
+
+  .pharma-table {
+    font-size: var(--font-size-sm);
+  }
+
+  .pharma-table th,
+  .pharma-table td {
+    padding: 0.5rem;
+  }
+
+  .pharma-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+
+  .pharma-topic-page__header {
+    padding: 2rem 1rem;
+  }
+
+  .pharma-sidebar {
+    display: none;
+  }
+
+  .pharma-calculator-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pharma-calculator {
+    padding: 1rem;
+  }
+}
+
+/* --- Tablet (641px - 1024px) --- */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .pharma-grid--3col,
+  .pharma-grid--4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pharma-footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pharma-hero {
+    padding: 4rem 2rem;
+  }
+
+  .pharma-nav__hamburger {
+    display: none;
+  }
+}
+
+/* --- Desktop (1025px+) --- */
+@media (min-width: 1025px) {
+  .pharma-nav__hamburger {
+    display: none;
+  }
+
+  .pharma-nav__links {
+    display: flex;
+  }
+}
+
+/* --- Print Styles --- */
+@media print {
+  .pharma-nav,
+  .pharma-footer,
+  .pharma-search-modal,
+  .pharma-btn,
+  .pharma-hero__actions {
+    display: none !important;
+  }
+
+  body {
+    background-color: transparent;
+    color: black;
+  }
+
+  .pharma-main {
+    margin-top: 0;
+  }
+
+  .pharma-card,
+  .pharma-calculator {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+
+  .pharma-topic-page__header {
+    background-color: transparent;
+    border-bottom: 2px solid black;
+    padding: 1rem 0;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+}

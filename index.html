@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PharmaSphere â€“ Interactive learning, calculations, and formulation science for pharmacy students. Explore dosage forms, formulations, drug delivery, and more.">
+  <meta name="keywords" content="pharmaceutics, pharmacy, dosage forms, formulation, drug delivery, calculators, pharmacy students">
+  <meta name="author" content="PharmaSphere">
+  <title>PharmaSphere â€“ Learn. Calculate. Formulate. Understand.</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/calculators.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- ==================== SPLASH SCREEN / PRELOADER ==================== -->
+  <div id="splash-screen">
+    <div class="splash-logo-wrapper">
+      <div class="splash-sphere">
+        <div class="splash-ring splash-ring-1"></div>
+        <div class="splash-ring splash-ring-2"></div>
+        <div class="splash-ring splash-ring-3"></div>
+      </div>
+      <div class="splash-core">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/>
+          <path d="m8.5 8.5 7 7"/>
+        </svg>
+      </div>
+    </div>
+    <h1 class="splash-title">Pharma<span>Sphere</span></h1>
+    <div class="splash-loading-bar">
+      <div class="splash-loading-fill"></div>
+    </div>
+  </div>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="pharma-nav" id="main-nav">
+    <div class="pharma-nav__container">
+      <a href="#/" class="pharma-nav__logo">
+        <img src="assets/logo.jpg" alt="PharmaSphere Logo" style="height: 28px; width: 28px; border-radius: 4px; margin-right: 8px;">
+        <span class="pharma-nav__logo-text">Pharma<span class="pharma-nav__logo-accent">Sphere</span></span>
+      </a>
+
+      <div class="pharma-nav__links" id="nav-links">
+        <a href="#/" class="pharma-nav__link active" data-nav="home">Home</a>
+        <a href="#/learn" class="pharma-nav__link" data-nav="learn">Learn</a>
+        <a href="#/dosage-forms" class="pharma-nav__link" data-nav="dosage-forms">Dosage Forms</a>
+        <a href="#/calculators" class="pharma-nav__link" data-nav="calculators">Calculators</a>
+        <a href="#/lab-qc" class="pharma-nav__link" data-nav="lab-qc">Lab &amp; QC</a>
+        <a href="#/drug-delivery" class="pharma-nav__link" data-nav="drug-delivery">Drug Delivery</a>
+        <a href="#/quiz" class="pharma-nav__link" data-nav="quiz">Quiz</a>
+        <a href="#/references" class="pharma-nav__link" data-nav="references">References</a>
+        <a href="#/about" class="pharma-nav__link" data-nav="about">About</a>
+      </div>
+
+      <div class="pharma-nav__actions">
+        <button class="pharma-nav__action-btn" id="search-trigger" title="Search (Ctrl+K)" aria-label="Open search">
+          <i data-lucide="search"></i>
+        </button>
+        <button class="pharma-nav__hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== SEARCH MODAL ==================== -->
+  <div class="pharma-search-modal" id="search-modal" role="dialog" aria-label="Search">
+    <div class="pharma-search-modal__overlay" id="search-overlay"></div>
+    <div class="pharma-search-modal__content">
+      <div class="pharma-search-modal__header">
+        <i data-lucide="search" class="pharma-search-modal__icon"></i>
+        <input type="text" id="search-input" class="pharma-search-modal__input"
+               placeholder="Search topics, formulas, excipients, calculators..."
+               autocomplete="off" spellcheck="false">
+        <kbd class="pharma-search-modal__kbd">ESC</kbd>
+      </div>
+      <div class="pharma-search-modal__results" id="search-results">
+        <div class="pharma-search-modal__empty">
+          <p>Start typing to search across all pharmaceutics content...</p>
+          <div class="pharma-search-modal__hints">
+            <span class="pharma-badge pharma-badge--outline">Topics</span>
+            <span class="pharma-badge pharma-badge--outline">Calculators</span>
+            <span class="pharma-badge pharma-badge--outline">Excipients</span>
+            <span class="pharma-badge pharma-badge--outline">Equipment</span>
+            <span class="pharma-badge pharma-badge--outline">Definitions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main id="app" class="pharma-main">
+    <div class="pharma-loading">
+      <div class="pharma-loading__spinner"></div>
+      <p>Loading PharmaSphere...</p>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="pharma-footer">
+    <div class="pharma-footer__container">
+      <div class="pharma-footer__grid">
+        <div class="pharma-footer__brand">
+          <h3><img src="assets/logo.jpg" alt="Logo" style="height: 24px; width: 24px; border-radius: 4px; margin-right: 8px; vertical-align: middle;"> PharmaSphere</h3>
+          <p>Created by <strong>Anbarasu Murugan</strong></p>
+          <p class="pharma-footer__tagline">Learn. Calculate. Formulate. Understand.</p>
+        </div>
+        <div class="pharma-footer__links">
+          <h4>Quick Links</h4>
+          <a href="#/learn">Learn</a>
+          <a href="#/calculators">Calculators</a>
+          <a href="#/quiz">Take a Quiz</a>
+        </div>
+        <div class="pharma-footer__links">
+          <h4>Contact</h4>
+          <a href="https://rxanbarasumurugan.b12sites.com/" target="_blank" rel="noopener noreferrer"><i data-lucide="globe" style="width:14px; height:14px; margin-right:4px; vertical-align:middle;"></i> Personal Website</a>
+          <a href="https://github.com/anbarasupharma" target="_blank" rel="noopener noreferrer"><i data-lucide="github" style="width:14px; height:14px; margin-right:4px; vertical-align:middle;"></i> GitHub Profile</a>
+        </div>
+        <div class="pharma-footer__links">
+          <h4>Project</h4>
+          <a href="https://github.com/anbarasupharma" target="_blank" rel="noopener noreferrer">Source Code</a>
+          <a href="#/about">Documentation</a>
+        </div>
+      </div>
+      <div class="pharma-footer__bottom">
+        <p>&copy; 2026 Anbarasu Murugan | PharmaSphere. Educational Open-Source Project.</p>
+        <p class="pharma-footer__disclaimer">âš•ï¸ This website is for educational purposes only. It does not provide individualized medical advice. Always consult official pharmacopoeial references and qualified professionals for clinical decisions.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== CDN LIBRARIES ==================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- ==================== DATA FILES ==================== -->
+  <script src="js/data/topics.js"></script>
+  <script src="js/data/topics-dosage.js"></script>
+  <script src="js/data/topics-delivery.js"></script>
+  <script src="js/data/topics-quality.js"></script>
+  <script src="js/data/topics-user-notes.js"></script>
+  <script src="js/data/topics-ndds-notes.js"></script>
+  <script src="js/data/topics-qa.js"></script>
+  <script src="js/data/topics-final-notes.js"></script>
+  <script src="js/data/topics-extra.js"></script>
+  <script src="js/data/excipients.js"></script>
+  <script src="js/data/equipment.js"></script>
+  <script src="js/data/quizzes.js"></script>
+  <script src="js/data/quizzes-extended.js"></script>
+  <script src="js/data/search-index.js"></script>
+
+  <!-- ==================== MODULES ==================== -->
+  <script src="js/progress.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/calculators.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/hero-3d.js"></script>
+
+  <!-- ==================== PAGE RENDERERS ==================== -->
+  <script src="js/pages/home.js"></script>
+  <script src="js/pages/learn.js"></script>
+  <script src="js/pages/dosage-forms.js"></script>
+  <script src="js/pages/calculators-page.js"></script>
+  <script src="js/pages/lab-qc.js"></script>
+  <script src="js/pages/drug-delivery.js"></script>
+  <script src="js/pages/quiz-page.js"></script>
+  <script src="js/pages/references.js"></script>
+  <script src="js/pages/about.js"></script>
+
+  <!-- ==================== APP CORE (MUST LOAD LAST) ==================== -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
+
+
